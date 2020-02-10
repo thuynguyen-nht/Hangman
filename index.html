@@ -6,26 +6,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title>Hang Man</title>
 </head>
 
 <body>
-    <h1>Hang Man</h1>
-    <p>Press Any key to get started!</p>
+    <div class="container">
+        <div class="jumbotron bg-dark text-center ">
+            <h1 class="display-1 font-weight-bold">Hang Man</h1>
+        </div>
+        <div class="row">
+            <div class="col-md card">
+                <img src="assets/images/21-haha-512.png" class="card-img-top" alt="defautImg">
+            </div>
+            <div class="col-md text-center">
+                <p>Wins: <span id="wins-Text">0</span></p>
 
-    <p>Wins: <span id="wins-Text">0</span></p>
+                <p>Current Word: <span id="word-Text"></span></p>
 
-    <p>Current Word: <span id="word-Text"></span></p>
+                <p>Number of Guesses: <span id="guessTurns-Text">10</span></p>
 
-    <p>Number of Guesses: <span id="guessTurns-Text">9</span></p>
+                <p>Letter already guessed: <span id="guesses-Text"></span></p>
+            </div>
+        </div>
 
-    <p>Letter already guessed: <span id="guesses-Text"></span></p>
 
-
-    <script src="assets/javascript/game.js"></script>
-
+        <script src="assets/javascript/game.js"></script>
+    </div>
 </body>
 
 </html>

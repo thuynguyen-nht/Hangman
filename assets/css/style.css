@@ -1,3 +1,10 @@
 body {
     font-size: 2em;
+    background-color: black;
+    color: blanchedalmond;
+}
+
+
+h1 {
+    font-size: 5em;
 }
