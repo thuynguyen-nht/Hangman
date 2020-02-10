@@ -5,6 +5,7 @@ var winsText = document.getElementById("wins-Text");
 var guessTurns = document.getElementById("guessTurns-Text");
 var guessesText = document.getElementById("guesses-Text");
 var wordInPlayText = document.getElementById("word-Text");
+var pictureOfSinger = document.getElementById("icon");
 var wordInPlay = "";
 var characters = [];
 var array2 = []; //to hold the guessed and "-" during the process.
@@ -18,39 +19,33 @@ var numberGuesses = 10;
 var Choices = {
     justin: {
         picture: "assets\images\bieber-coverstory-square.jpg",
-        song: "Illegal Alien",
+        song: "Baby Baby",
     },
     adele: {
         picture: "genesis.jpg",
-        song: "Illegal Alien",
+        song: "Someone Like You",
     },
-    madona: {
+    ladygaga: {
         picture: "genesis.jpg",
-        song: "Illegal Alien"
+        song: "Bad Romance"
     },
     taylor: {
         picture: "genesis.jpg",
-        song: "Illegal Alien",
+        song: "Bad Blood",
     },
     christina: {
         picture: "genesis.jpg",
-        song: "Illegal Alien",
+        song: "A Thousand Years",
     },
     shakira: {
         picture: "genesis.jpg",
-        song: "Illegal Alien",
+        song: "Waka Waka",
     },
     selena: {
         picture: "genesis.jpg",
-        song: "Illegal Alien",
+        song: "Hands to Myself",
     },
 };
-
-// function dashes() {
-//     var displayByDashes = "-";
-//     var display = displayByDashes.repeat(allCharacters.length);
-//     wordInPlayText.textContent = display;
-// };
 
 function beginGame() {
 
@@ -72,6 +67,7 @@ function beginGame() {
     // wrongGuesses = [];
     array2 = [];
     userChoices = [];
+
 
     //can use totalCharactersCount here but purposely use charac.length to show that under the same function beginGame it can be used.
     for (var i = 0; i < characters.length; i++) {
@@ -98,7 +94,6 @@ function charactersCheck(letter) {
         for (var i = 0; i < totalCharactersCount; i++) {
             if (wordInPlay[i] == letter) {
                 array2[i] = letter;
-                console.log("Received letter");
             }
         }
     } else {
@@ -112,18 +107,48 @@ function charactersCheck(letter) {
 };
 
 function roundReset() {
-    if (numberGuesses == 0) {
-        alert("You lost!");
-        beginGame();
-    };
+    console.log("win " + wins + " guessleft " + numberGuesses);
+    var win;
+    //check if user has done guesses. If they not done win is set to be false.
+    if (array2.length === 0) {
+        win = false;
+    }
+    // Otherwise, we set win to true.
+    else {
+        win = true;
+    }
 
-    if (characters.toString() == array2.toString()) {
+    // Check if the letter is in the array, (=== -1) shows if the letter cannot be found. This prevent user to win if he not done guessing.
+
+    for (var i = 0; i < totalCharactersCount; i++) {
+        if (array2.indexOf(wordInPlay[i]) === -1) {
+            win = false;
+        }
+    }
+
+    if (win == true) {
         wins++;
         alert("Awsome!");
         winsText.textContent = wins;
         beginGame();
     }
+
+    // if (characters.toString() == array2.toString()) {
+    //     wins++;
+    //     alert("Awsome!");
+    //     winsText.textContent = wins;
+    //     beginGame();
+    // };
+
+    if (numberGuesses == 0) {
+        alert("You lost!");
+        beginGame();
+
+    };
+
+
     wordInPlayText.textContent = array2.join(" ");
+
 }
 
 ///WHERE TO GAME START TO RUN============

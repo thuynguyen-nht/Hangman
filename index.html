@@ -17,26 +17,62 @@
 <body>
     <div class="container">
         <div class="jumbotron bg-dark text-center ">
-            <h1 class="display-1 font-weight-bold">Hang Man</h1>
+            <h1 class="display-1 font-weight-bold" id="header">Hang Man</h1>
         </div>
         <div class="row">
-            <div class="col-md card">
-                <img src="assets/images/21-haha-512.png" class="card-img-top" alt="defautImg">
+
+            <div id="icon" class="col-md-5 card text-center">
+                <img id="icon" src="assets/images/21-haha-512.png" class="row card-img-top text-center" alt="defautImg">
+                <br>
+                <div class="row card bg-dark">
+                    <div class="card-body">
+                        <h2 class="card-title">Song</h2>
+                        <h2 class="card-title" id="song-name"">- - - - - </h2>
+
+                    </div>
+                </div>
             </div>
-            <div class="col-md text-center">
-                <p>Wins: <span id="wins-Text">0</span></p>
 
-                <p>Current Word: <span id="word-Text"></span></p>
+            <div class=" col-md-7 text-center">
 
-                <p>Number of Guesses: <span id="guessTurns-Text">10</span></p>
+                            <div class="card bg-dark">
+                                <div class="card-body">
+                                    <h2 class="card-title">Wins</h2>
+                                    <h2 class="card-title" id="wins-Text">0</h2>
 
-                <p>Letter already guessed: <span id="guesses-Text"></span></p>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card bg-dark">
+                                <div class="card-body">
+                                    <h2 class="card-title">Current Word:</h2>
+                                    <h2 class="card-title" id="word-Text">0</h2>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card bg-dark">
+                                <div class="card-body">
+                                    <h2 class="card-title">Number of Guesses:</h2>
+                                    <h2 class="card-title" id="guessTurns-Text">10</h2>
+
+                                </div>
+                            </div>
+                            <br>
+                            <div class="card bg-dark">
+                                <div class="card-body">
+                                    <h2 class="card-title">Letter already guessed:</h2>
+                                    <h2 class="card-title" id="guesses-Text">- - - - -</h2>
+
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+
+
+                <script src="assets/javascript/game.js"></script>
             </div>
-        </div>
-
-
-        <script src="assets/javascript/game.js"></script>
-    </div>
 </body>
 
 </html>

@@ -4,7 +4,24 @@ body {
     color: blanchedalmond;
 }
 
+#header {
+    font-size: 5em;
+}
 
 h1 {
     font-size: 5em;
+}
+
+div {
+    background-color: black;
+}
+
+#icon {
+    width: 400px;
+    height: auto;
+    background-color: black;
+}
+
+div.card-body {
+    border: blanchedalmond solid 2px;
 }
