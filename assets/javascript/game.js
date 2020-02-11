@@ -22,7 +22,7 @@ var Choices = {
     justin: {
         picture: "assets/images/justin.jpg",
         song: "Baby Baby",
-        play: ""
+        play: "https://jk9nj200-a.akamaihd.net/downloads/ringtones/files/mp3/baby-justin-bieber-41888.mp3"
     },
     adele: {
         picture: "assets/images/adele.jpg",
@@ -151,7 +151,7 @@ function roundReset() {
     }
 
     if (numberGuesses == 0) {
-        alert("You lost!");
+        alert("You lost!. The correct answer is " + wordInPlay);
         // setTimeout(beginGame, 1000);
         beginGame();
 
