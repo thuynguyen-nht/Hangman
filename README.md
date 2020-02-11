@@ -8,7 +8,7 @@
 
 - There are 9 times for users to guess. 
 
--This game means to test if you are millennial :)) 
+- This game means to test if you are millennial :)) 
 
 - This project is missing some songs sources. Therefore, the game is muted. You have to guess without music. :((
 
