@@ -10,12 +10,13 @@ var songName = document.getElementById("song-name");
 var wordInPlay = "";
 var characters = [];
 var array2 = []; //to hold the guessed and "-" during the process.
-// var wrongGuesses = [];
 var userChoices = [];
 var totalCharactersCount = 0;
 var wins = 0;
 var numberGuesses = 10;
-
+var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+    "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
+];
 
 var Choices = {
     justin: {
@@ -66,7 +67,6 @@ function beginGame() {
 
     //reset game to new round
     numberGuesses = 10;
-    // wrongGuesses = [];
     array2 = [];
     userChoices = [];
 
@@ -81,6 +81,7 @@ function beginGame() {
     winsText.textContent = wins;
 };
 
+
 function charactersCheck(letter) {
     //this first for loop, this is to check if the letter is in the wordInPlay at all
     var letterInWord = false;
@@ -92,15 +93,23 @@ function charactersCheck(letter) {
 
         };
     };
+
+    var checkAlphabet = false;
+
+    if (alphabet.indexOf(letter) !== -1) {
+        checkAlphabet = true;
+
+    };
+
     if (letterInWord) {
         for (var i = 0; i < totalCharactersCount; i++) {
             if (wordInPlay[i] == letter) {
                 array2[i] = letter;
             }
         }
-    } else {
+    } else if (checkAlphabet) {
         //this numberGuesses only being substract if the letter is wrong
-        // wrongGuesses.push(letter);
+
         numberGuesses--;
         guessTurns.textContent = numberGuesses;
 
@@ -141,25 +150,13 @@ function roundReset() {
 
     }
 
-    // if (characters.toString() == array2.toString()) {
-    //     wins++;
-    //     alert("Awsome!");
-    //     winsText.textContent = wins;
-    //     beginGame();
-    // };
-
     if (numberGuesses == 0) {
         alert("You lost!");
         // setTimeout(beginGame, 1000);
         beginGame();
 
     };
-
-
     wordInPlayText.textContent = array2.join(" ");
-
-    // pictureOfSinger.textContent = Choices[wordInPlay].picture;
-
 
 }
 
@@ -167,12 +164,27 @@ function roundReset() {
 beginGame();
 
 document.onkeyup = function (event) {
+
+    //check if the key is in alphabet;
+
     var userGuesses = event.key.toLowerCase();
-    userChoices.push(userGuesses);
-    guessesText.textContent = userChoices;
+
+    var checkAlphabet = false;
+
+    if (alphabet.indexOf(userGuesses) !== -1) {
+        checkAlphabet = true;
+
+    };
+    if (checkAlphabet) {
+
+        userChoices.push(userGuesses);
+        guessesText.textContent = userChoices;
+    }
+
 
     //call function charactersCheck.
     charactersCheck(userGuesses);
     roundReset();
+
 
 };
