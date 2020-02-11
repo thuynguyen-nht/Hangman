@@ -5,7 +5,8 @@ var winsText = document.getElementById("wins-Text");
 var guessTurns = document.getElementById("guessTurns-Text");
 var guessesText = document.getElementById("guesses-Text");
 var wordInPlayText = document.getElementById("word-Text");
-var pictureOfSinger = document.getElementById("icon");
+var pictureOfSinger = document.getElementById("imgOfSinger");
+var songName = document.getElementById("song-name");
 var wordInPlay = "";
 var characters = [];
 var array2 = []; //to hold the guessed and "-" during the process.
@@ -18,31 +19,32 @@ var numberGuesses = 10;
 
 var Choices = {
     justin: {
-        picture: "assets\images\bieber-coverstory-square.jpg",
+        picture: "assets/images/justin.jpg",
         song: "Baby Baby",
+        play: ""
     },
     adele: {
-        picture: "genesis.jpg",
+        picture: "assets/images/adele.jpg",
         song: "Someone Like You",
     },
     ladygaga: {
-        picture: "genesis.jpg",
+        picture: "assets/images/ladyGaga.jpg",
         song: "Bad Romance"
     },
     taylor: {
-        picture: "genesis.jpg",
+        picture: "assets/images/taylor.jpg",
         song: "Bad Blood",
     },
     christina: {
-        picture: "genesis.jpg",
+        picture: "assets/images/christina.jpg",
         song: "A Thousand Years",
     },
     shakira: {
-        picture: "genesis.jpg",
+        picture: "assets/images/shakira.jpg",
         song: "Waka Waka",
     },
     selena: {
-        picture: "genesis.jpg",
+        picture: "assets/images/selenaGomez.jpg",
         song: "Hands to Myself",
     },
 };
@@ -126,11 +128,17 @@ function roundReset() {
         }
     }
 
-    if (win == true) {
+    if (win === true) {
         wins++;
-        alert("Awsome!");
         winsText.textContent = wins;
-        beginGame();
+        console.log("Awsome!");
+        songName.textContent = Choices[wordInPlay].song;
+
+        pictureOfSinger.src = Choices[wordInPlay].picture;
+
+        //the browser will wait for 1 second before beginGame fucntion run.
+        setTimeout(beginGame, 3000);
+
     }
 
     // if (characters.toString() == array2.toString()) {
@@ -142,12 +150,16 @@ function roundReset() {
 
     if (numberGuesses == 0) {
         alert("You lost!");
+        // setTimeout(beginGame, 1000);
         beginGame();
 
     };
 
 
     wordInPlayText.textContent = array2.join(" ");
+
+    // pictureOfSinger.textContent = Choices[wordInPlay].picture;
+
 
 }
 
